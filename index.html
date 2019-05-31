@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+	<head>
+		<link href="index.css" rel="stylesheet" type="text/css">
+
+		<!--bootstrap-->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+		<!--jquery-->
+		<script
+  	src="https://code.jquery.com/jquery-3.4.1.slim.js"
+  	integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
+  	crossorigin="anonymous"></script>
+
+	</head>
+	<body>
+		<div class="titlebox">Drawing app</div>
+		<div class="colordiv">
+			<input id="colorval" type="color" list/>
+		</div>
+		<div id="circle"></div>
+		<input type="range" class="custom-range" id="slider">
+
+		<canvas id="paint">
+		</canvas>
+
+		<div class="buttonarea">
+			<div id="erase">Erase</div>
+			<div id="save">Save</div>
+			<div id="reset">Reset</div>
+		</div>
+
+		<!--Credits-->
+		<div class="credits">
+		Background image by
+		<a href=
+		"https://pixabay.com/users/ractapopulous-24766/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2687925">
+		JL G</a> from
+		<a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2687925">
+		Pixabay</a>
+		</div>
+
+		<script src="index.js" type='text/javascript'></script>
+	</body>
+</html>
