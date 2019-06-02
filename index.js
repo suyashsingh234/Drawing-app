@@ -5,6 +5,11 @@
 //erase button to change from draw mode to erase mode and vice versa
 //save button saves the Drawing
 //reset button erases full drawing or goes back to last save
+
+document.ontouchmove=function(event){
+  event.preventDefault();
+}
+
 var colorval=document.getElementById('colorval');
 var circle=document.getElementById('circle');
 
@@ -84,29 +89,41 @@ paint.addEventListener('mouseup',function(){
 ///////////////////////////////////////////
 
 //for mobile
-paint.addEventListener('touchstart',function(event){
+paint.ontouchstart=function(event){
+  event.preventDefault();
 	ispaint='true';
-	x=event.pageX-paint.offsetLeft;
-	y=event.pageY-paint.offsetTop;
+	x=event.touches[0].clientX-paint.offsetLeft;
+	y=event.touches[0].clientY-paint.offsetTop;
 	context.beginPath();
 	context.moveTo(x,y);
 	console.log(x+' '+y);
-});
-paint.addEventListener('touchmove',function(event)
+}
+paint.ontouchmove=function(event)
 {
+  event.preventDefault();
 	if(ispaint=='true')
 	{
-		x=event.pageX-paint.offsetLeft;
-		y=event.pageY-paint.offsetTop;
+		x=event.touches[0].clientX-paint.offsetLeft;
+		y=event.touches[0].clientY-paint.offsetTop;
 		context.lineTo(x,y);
 		console.log(x+' '+y);
+    context.lineWidth=parseInt(circle.style.width);
+    if(iserase=='false')
+	{
+		context.strokeStyle=colorval.value;
+	}
+	else
+	{
+		context.strokeStyle='#ffffff';
+	}
 		context.stroke();
 	}
-});
+}
 
-paint.addEventListener('touchend',function(){
+paint.ontouchend=function(event){
+  event.preventDefault();
 	ispaint='false';
-});
+}
 /////////////////////////////////////////////
 
 save.addEventListener('click',function(){
